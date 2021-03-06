@@ -7,6 +7,9 @@ module.exports = app => {
   // Retrieve all Customers
   app.get("/thoughts", thoughts.findAll);
 
+   // Retrieve all Customers
+   app.get("/thoughts_comments", thoughts.findAllWithComments);
+
   // Retrieve a single Customer with customerId
   app.get("/thoughts/:thoughtId", thoughts.findOne);
 };

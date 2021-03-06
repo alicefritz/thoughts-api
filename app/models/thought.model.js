@@ -52,4 +52,21 @@ Thought.getAll = result => {
   });
 };
 
+Thought.getAllWithComments = result => {
+  sql.query(`SELECT thoughts.*, COUNT(comment) AS comment_count
+  FROM thoughts
+  LEFT JOIN comments ON thoughts.ThoughtID = comments.ThoughtID
+  GROUP BY ThoughtID`, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("thoughts: ", res);
+    result(null, res);
+  });
+};
+
+
 module.exports = Thought;

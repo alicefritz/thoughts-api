@@ -13,7 +13,7 @@ exports.create = (req, res) => {
   const comment = new Comment({
     comment: req.body.comment,
     name: req.body.name,
-    thoughtID: req.body.thoughtID
+    ThoughtID: req.body.ThoughtID
   });
 
   // Save Comment in the database

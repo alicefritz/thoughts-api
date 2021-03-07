@@ -2,12 +2,14 @@ const sql = require("./db.js");
 
 // constructor
 const Comment = function(comment){
-  this.COMMENT = comment.comment;
-  this.NAME = comment.name;
-  this.ThoughtId = comment.thoughtId;
+  console.log(comment)
+  this.comment = comment.comment;
+  this.name = comment.name;
+  this.ThoughtID = comment.ThoughtID;
 };
 
 Comment.create = (newComment, result) => {
+  console.log(newComment)
   sql.query("INSERT INTO comments SET ?", newComment, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -21,8 +23,8 @@ Comment.create = (newComment, result) => {
 };
 
 
-Comment.findById = (thoughtId, result) => {
-  sql.query(`SELECT * FROM comments WHERE ThoughtID = ${thoughtId}`, (err, res) => {
+Comment.findById = (ThoughtID, result) => {
+  sql.query(`SELECT * FROM comments WHERE ThoughtID = ${ThoughtID}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);

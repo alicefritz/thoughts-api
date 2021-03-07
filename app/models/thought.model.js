@@ -15,7 +15,7 @@ Thought.create = (newThought, result) => {
     }
 
     console.log("created thought: ", { id: res.insertId, ...newThought });
-    result(null, { id: res.insertId, ...newThought });
+    result(null, { ThoughtID: res.insertId, ...newThought });
   });
 };
 

@@ -4,6 +4,7 @@ const sql = require("./db.js");
 const Thought = function(thought){
   this.thinker = thought.thinker;
   this.thought = thought.thought;
+  this.time = thought.time;
 };
 
 Thought.create = (newThought, result) => {

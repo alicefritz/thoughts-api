@@ -12,7 +12,8 @@ exports.create = (req, res) => {
   // Create a Thought
   const thought = new Thought({
     thought: req.body.thought,
-    thinker: req.body.thinker
+    thinker: req.body.thinker,
+    time: req.body.time
   });
 
   // Save Thought in the database

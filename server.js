@@ -16,9 +16,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "thoughts-api" });
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
 
 require("./app/routes/thought.routes.js")(app);

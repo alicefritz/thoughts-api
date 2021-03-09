@@ -40,20 +40,8 @@ Thought.findById = (thoughtId, result) => {
   });
 };
 
+
 Thought.getAll = result => {
-  sql.query("SELECT * FROM thoughts", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
-
-    console.log("thoughts: ", res);
-    result(null, res);
-  });
-};
-
-Thought.getAllWithComments = result => {
   sql.query(`SELECT thoughts.*, COUNT(comment) AS comment_count
   FROM thoughts
   LEFT JOIN comments ON thoughts.ThoughtID = comments.ThoughtID

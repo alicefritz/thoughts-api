@@ -39,18 +39,6 @@ exports.findAll = (req, res) => {
   });
 };
 
-// Retrieve all Thoughts with number of comments from the database.
-exports.findAllWithComments = (req, res) => {
-  Thought.getAllWithComments((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving thoughts."
-      });
-    else res.send(data);
-  });
-};
-
 // Find a single Thought with a thoughtId
 exports.findOne = (req, res) => {
   Thought.findById(req.params.thoughtId, (err, data) => {

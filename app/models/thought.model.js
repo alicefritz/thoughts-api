@@ -2,8 +2,8 @@ const sql = require("./db.js");
 
 // constructor
 const Thought = function(thought){
-  this.thinker = thought.thinker;
-  this.thought = thought.thought;
+  this.thinker = thought.thinker || 'Anonymous';
+  this.thought = thought.thought || 'My mind is blank today.';
   this.time = thought.time;
 };
 

@@ -3,8 +3,8 @@ const sql = require("./db.js");
 // constructor
 const Comment = function(comment){
   console.log(comment)
-  this.comment = comment.comment;
-  this.name = comment.name;
+  this.comment = comment.comment || 'I have nothing to add.';
+  this.name = comment.name || 'Anonymous';
   this.ThoughtID = comment.ThoughtID;
 };
 
